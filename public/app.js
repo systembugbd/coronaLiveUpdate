@@ -21,6 +21,7 @@ window.onload = callApi(API + "Bangladesh");
 window.onload = callApiAll(API);
 
 covid19SearchInput.addEventListener("keypress", function (e) {
+  e.preventDefault();
   // console.log(e.target.value)
   if (e.target.value != "") {
     if (e.key == "Enter") {
@@ -30,6 +31,7 @@ covid19SearchInput.addEventListener("keypress", function (e) {
     }
   }else{
     if (e.key == "Enter") {
+        e.preventDefault();
         alert('Please Type your desired Country and Hit Enter or Click on the Button');
     }
 }
@@ -37,6 +39,7 @@ covid19SearchInput.addEventListener("keypress", function (e) {
 
 covid19SearchBtn.addEventListener("click", function (e) {
     // console.log(e.target.value)
+    e.preventDefault();
     if (covid19SearchInput.value != "") {
       
         //  country.innerHTML= e.target.value
@@ -44,6 +47,7 @@ covid19SearchBtn.addEventListener("click", function (e) {
         covid19SearchInput.value = "";
       
     }else{
+        e.preventDefault();
         alert('Please Type your desired Country and Hit Enter or Click on the Button');
     }
   });

@@ -29,16 +29,25 @@ app.get('/', (req, res) => {
 });
 
 
+app.get('/covid19', (req, res) => {
+    res.sendFile(__dirname + '/public/covid19.html');
+});
 
-const PORT = process.env.PORT || 4444;
+app.get('/*', (req, res) => {
+    res.sendFile(__dirname + '/public/404.html');
+});
+
+
+
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
     console.log('App is running on PORT ' + PORT);
    
-    mongoose.connect(`mongodb+srv://${DB_USER}:<${DB_PASS}>@clastertodolist-blqnk.mongodb.net/test?retryWrites=true&w=majority`,{
-        useUnifiedTopology: true, useNewUrlParser: true }, () => {
-        console.log('Database Connected');
-    });
+    // mongoose.connect(`mongodb+srv://${DB_USER}:<${DB_PASS}>@clastertodolist-blqnk.mongodb.net/test?retryWrites=true&w=majority`,{
+    //     useUnifiedTopology: true, useNewUrlParser: true }, () => {
+    //     console.log('Database Connected');
+    // });
 
 });
 
